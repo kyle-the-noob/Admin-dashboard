@@ -1,13 +1,14 @@
 :root {
     --main-con-color: lightgrey;
     --base-color: lightblue;
-    --radius: 40px;
+    --radius: 20px;
+    --img-radius: 40px;
     --content-font-size: 1.2rem;
 }
 img {
     height: 50px;
     width: 50px;
-    border-radius: var(--radius);
+    border-radius: var(--img-radius);
 }
 
 body {
@@ -89,18 +90,20 @@ header,
     background-color: var(--main-con-color);
     display: grid;
     grid-template:5vh 1fr / 2fr 1fr;
+    position: relative;
 }
 
 .cards {
     grid-row: 2 / 3;
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
-    gap: 20px;
+    grid-template: repeat(3, 1fr) / repeat(2, 2fr);
+    width: 54vw;
+    gap: 30px;
     padding: 20px;
+    margin-right: 15px;
 }
 
 .cards > div {
-    border: 1px solid red;
     border-radius: 20px;
     padding: 20px;
     background-color: white;
@@ -108,4 +111,21 @@ header,
 
 .sideCards {
     grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: 6vh 1fr 6vh 1fr;
+    width: 20vw;
+
+    position: relative;
+    top: -38px;
+}
+
+.Ann,
+.trending {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+.Ann {
+    margin-bottom: 20px;
 }
