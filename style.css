@@ -1,30 +1,88 @@
+@font-face {
+    font-family: 'rubik';
+    src: url('rubik-regular-webfont.woff2') format('woff2'),
+         url('rubik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
-    --main-con-color: lightgrey;
-    --base-color: lightblue;
+    --main-con-color: rgb(39, 39, 42);
+    --base-color: rgb(113, 63, 18);
+    --background-color: rgb(255, 251, 235);
     --radius: 20px;
     --img-radius: 40px;
     --content-font-size: 1.2rem;
+    --nav-font-size: 1.5rem;
+    --font-color: rgb(250, 250, 250);
+    --secondary-font-color: rgb(97, 94, 94);
+    --font-family: ;
 }
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 20vw 2fr;
+    font-family: rubik;
+}
+
 img {
     height: 50px;
     width: 50px;
     border-radius: var(--img-radius);
 }
 
-body {
-    display: grid;
-    grid-template-columns: 20vw 2fr;
+.sidebar {
+    grid-row: 1 / 3;
+    background-color: var(--base-color);
+    padding: 0px 30px;
+    font-family: var(--font-family);
+}
+
+.branding {
+    color: var(--font-color);
+    font-size: 2.5rem;
+    margin-bottom: 5vh;
+}
+
+.branding > svg {
+    height: 60px;
+    width: 60px;
 }
 
 .nav {
-    grid-row: 1 / 3;
-    background-color: var(--base-color);
+    font-size: calc(var(--nav-font-size) + .2rem);
+    color: var(--font-color);
+
+    display: grid;
+    grid-template-rows: 30vh 15vh;
+    row-gap: 8vh;
+}
+
+.nav svg {
+    margin-right: 10px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 header {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-rows: repeat(2, 12vh);
+    grid-template-rows: repeat(2, 10vh);
+    background-color: var(--background-color);
+    box-shadow: 8px 10px 20px var(--font-color);
+    font-family: var(--font-family);
 }
 
 header, 
@@ -35,44 +93,57 @@ header,
 .firstrow {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+}
+
+.firstrow > P {
+    font-size: var(--content-font-size);
+    font: 800;
 }
 
 #search {
     margin-right: 15vw;
-    padding: 1rem;
-    height: 1.6rem;
+    padding: 10px;
+    height: 35px;
     width: 40vw;
     background-color: var(--main-con-color);
     border-radius: var(--radius);
     border: none;
+
     font-size: var(--content-font-size);
+    color: var(--font-color);
+    font: 400;
 }
 
 #search:focus, #search:hover {
     box-shadow: inset 1px 1px 3px;
-    border-color: var(--main-con-color);
-    outline-style: none;
+    outline-color: var(--font-color);
 }
 
 .firstrow > button {
     background: none;
     border: none;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 
 .secondrow {
     display: flex;
 }
 
+.secondrow p {
+    font-size: calc(var(--content-font-size) + .2rem);
+    font-weight: 500;
+}
+
 .secondrow > img {
     height: 60px;
     width: 60px;
+    margin-right: 20px;
 }
 
 .buttonCnter {
-    margin-left: 60vh;
+    margin-left: 65vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -84,6 +155,11 @@ header,
     background-color: var(--base-color);
     height: 40px;
     width: 100px;
+
+    font-size: var(--content-font-size);
+    color: var(--font-color);
+    font-weight: 600;
+
 }
 
 .mainCnter {
@@ -91,6 +167,14 @@ header,
     display: grid;
     grid-template:5vh 1fr / 2fr 1fr;
     position: relative;
+    font-family: var(--font-family);
+}
+
+.mainCnter > h3 {
+    place-content: end;
+    margin-left: 20px;
+    color: var(--font-color);
+    font-size: var(--nav-font-size);
 }
 
 .cards {
@@ -101,31 +185,79 @@ header,
     gap: 30px;
     padding: 20px;
     margin-right: 15px;
+    overflow: hidden;
+    position: relative;
 }
 
 .cards > div {
     border-radius: 20px;
     padding: 20px;
-    background-color: white;
+    background-color: var(--background-color);
+}
+
+.cards div > span {
+    font-weight: 600;
+    font-size: calc(var(--content-font-size) - .1rem);
+}
+
+.cards div > p {
+    font-weight: 600;
+    color: var(--secondary-font-color);
 }
 
 .sideCards {
     grid-row: 2 / 3;
     display: grid;
-    grid-template-rows: 6vh 1fr 6vh 1fr;
+    grid-template-rows: 5vh 1fr 5vh 1fr;
     width: 20vw;
 
     position: relative;
-    top: -38px;
+    top: -28px;
+}
+
+.sideCards > h3 {
+    color: var(--font-color);
+    font-size: var(--nav-font-size);
 }
 
 .Ann,
 .trending {
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 25px;
 }
 
 .Ann {
     margin-bottom: 20px;
+}
+
+.Ann  span {
+    font-weight: 500;
+    font-size: calc(var(--content-font-size) - .2rem);
+}
+
+.Ann p {
+    font-size: calc(var(--content-font-size) - .4rem);
+    color: var(--secondary-font-color);
+}
+
+.Ann .bar {
+    background-color: rgba(19, 19, 19, 0.3);
+    height: 2px;
+    width: 18vw;
+    margin: 20px 0px;
+}
+
+.trending {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 5px;
+}
+
+.trending span {
+    font-weight: 500;
+}
+
+.trending p {
+    color: var(--secondary-font-color);
 }
